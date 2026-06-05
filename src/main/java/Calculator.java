@@ -1,17 +1,45 @@
 public class Calculator {
-    public int add(int a, int b){
-        //TODO inser your realisation in method add
+
+    public int add(int a, int b) {
+        return a + b;
     }
-    public int dif(int a, int b){
-        //TODO inser your realisation in method dif
+
+    public int dif(int a, int b) {
+        return a - b;
     }
-    public int div(int a, int b){
-        //TODO inser your realisation in method div
+
+    public int div(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        return a / b;
     }
-    public int times(int a, int b){
-        //TODO inser your realisation in method times
+
+    public int times(int a, int b) {
+        return a * b;
     }
-    public int solver(){
-        //TODO inser your realisation in method solver
+
+    public double[] solver(double a, double b, double c) {
+
+        if (a == 0) {
+            throw new IllegalArgumentException("Это не квадратное уравнение");
+        }
+
+        double discriminant = b * b - 4 * a * c;
+
+        if (discriminant > 0) {
+            double x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+
+            return new double[]{x1, x2};
+
+        } else if (discriminant == 0) {
+            double x = -b / (2 * a);
+
+            return new double[]{x};
+
+        } else {
+            return new double[]{};
+        }
     }
 }
